@@ -1,18 +1,34 @@
 const router = require('express').Router();
 
+const { validatePlaylist } = require('../validators/playlist.validation')
+
 const {
-    findPlaylists
+    createPlaylist,
+    findPlaylists,
+    findOnePlaylist,
+    updatePlaylist,
+    deletePlaylist
 } = require('../controllers/playlist.controllers')
 
-// Traer usuarios
-router.get('/find-all-playlist', findPlaylists);
+// Traer TODAS las playlist
+router.get('/find-all-playlists', findPlaylists);
 
-// Crear un usuario
-// router.post('/register', createUser);
+//Traer UNA playlist
+router.get('/find-one-playlist/:id_playlist', findOnePlaylist);
+
+//Actualizar una playlist
+router.get('/update-playlist/:id_playlist', updatePlaylist);
+
+//Eliminar una playlist
+router.get('/delete-playlist/:id_playlist', deletePlaylist);
+
+
+// Crear una playlist
+router.post('/register-playlist', validatePlaylist, createPlaylist);
 // {
-//     "user_name": "nombre_de_usuario",
-//     "user_email": "correo@example.com",
-//     "user_password": "contraseña_segura"
+//     "playlist_name": "Playlist Test",
+//     "song_ids": "correo@example.com",
+//     "user_id": 1
 //   }
 
 

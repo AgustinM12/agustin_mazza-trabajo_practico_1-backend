@@ -15,10 +15,10 @@ const Song = sequelize.define("Song", {
         type: DataTypes.STRING,
         allowNull: false
     },
-    // id_playlist: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: true
-    // },
+    playlist_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true
+    },
     in_use: {
         type: DataTypes.BOOLEAN,
         defaultValue: false

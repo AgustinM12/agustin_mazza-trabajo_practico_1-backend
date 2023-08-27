@@ -11,8 +11,9 @@ const { conectarDB } = require('./db');
 conectarDB();
 
 //MODELOS
-const User = require("./models/user.models")
-const Song = require("./models/canciones.models")
+const User = require('./models/user.models')
+const Song = require('./models/song.models')
+const Playlist = require('./models/playlist.models')
 
 //DECLARACION DEL PUERTO
 const port = process.env.PORT || 5000
@@ -29,6 +30,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
 //RUTAS
+app.use(require('./routes/user.routes'));
+app.use(require('./routes/song.routes'));
+app.use(require('./routes/playlist.routes'));
 
 //LEVANTAR EL SERVIDOR
 app.listen(port, () => {

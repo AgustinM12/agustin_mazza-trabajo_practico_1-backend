@@ -22,9 +22,9 @@ const Song = sequelize.define("Song", {
     paranoid: false,
     tableName: "Song"
 });
+Playlist.hasMany(Song, { foreignKey: "id_playlist" });
+Song.belongsTo(Playlist, { foreignKey: "id_playlist" });
 
-Song.belongsTo(Playlist, {foreignKey: "id_playlist"});
-Playlist.hasMany(Song, { foreignKey:  "id_playlist" });
 
 Song.sync({ force: false }).then(async () => {
     console.log('Tabla de canciones creada')

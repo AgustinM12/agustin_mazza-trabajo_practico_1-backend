@@ -53,12 +53,14 @@ ctrlPlaylist.updatePlaylist = async (req, res) => {
     try {
         const { id_song, id_playlist } = req.body;
 
+        //se verifica la existencia de la playlist elegida
         const existPlaylist = await Playlist.findOne({
             where: {
                 id_playlist
             }
         });
 
+        //se erifica la existencia de la cancion elegida
         const existSong = await Song.findOne({
             where: {
                 id_song
@@ -174,21 +176,21 @@ ctrlPlaylist.cargarCanciones = async (req, res) => {
     try {
         const { id_song, id_playlist } = req.body;
 
-        //SE VERIFICA QUE LA CANCION YA NO SE ENCUENTRE EN OTRA PLAYLIST
+        //se verifica que la cancion ya no se encuentre en otra playlist
         const cancionOcupada = await Song.findOne({
             where: {
                 id_playlist
             }
         });
 
-        //SE VERIFICA QUE LA PLAYLIST EXISTA
+        //se verifica que la playlist exista
         const existIdPlaylist = await Playlist.findOne({
             where: {
                 id_playlist
             }
         });
 
-        //SE VERIFICA QUE LA CANCION EXISTA
+        //se verifica que la cancion exista
         const existIdSong = await Song.findOne({
             where: {
                 id_song
@@ -212,7 +214,7 @@ ctrlPlaylist.cargarCanciones = async (req, res) => {
                 message: 'La cancion ya esta ocupada en otra playlist'
             })
 
-            //SI NO SE PRODUCEN ERRORES SE SIGUE CON LA ACTUALIZACION DE LA PLAYLIST
+            //si no se producen errores se sigue con la actualizacion de la playlist
         } else {
 
             const songs = await Song.update({

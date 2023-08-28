@@ -14,7 +14,7 @@ const Playlist = sequelize.define('playlist', {
     },
     song_ids: {
         type: DataTypes.JSON,
-        allowNull: true, // Puedes establecer un valor por defecto como un arreglo vacío
+        allowNull: true,
     }
 }, {
     timestamps: false,

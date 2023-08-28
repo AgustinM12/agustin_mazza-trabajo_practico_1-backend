@@ -11,11 +11,5 @@ router.get('/find-all-users', findUsers);
 
 // Crear un usuario
 router.post('/register-user',validateUser, createUser);
-// {
-//     "user_name": "nombre_de_usuario",
-//     "user_email": "correo@example.com",
-//     "user_password": "contraseña_segura"
-//   }
-  
 
 module.exports = router

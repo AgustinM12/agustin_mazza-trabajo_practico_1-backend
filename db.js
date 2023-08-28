@@ -1,4 +1,3 @@
-// SE TRAE LA LIBRERIA SEQUELIZE OPCION 2 FACIL
 const { Sequelize, DataTypes } = require('sequelize');
 // Se crea una instancia de la conexión a la base de datos
 

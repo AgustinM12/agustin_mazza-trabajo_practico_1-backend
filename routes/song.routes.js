@@ -12,10 +12,5 @@ router.get('/find-all-songs', findSongs);
 
 // Crear una cancion
 router.post('/register-song', validateSong, createSong);
-// {
-//     "song_name": "cancion GOD",
-//         "artist": "MESSI"
-// }
-
 
 module.exports = router

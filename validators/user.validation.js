@@ -15,7 +15,6 @@ check("user_password")
 
 (req, res, next) =>{
     validateSchema(req, res, next)
-}
-]
+}]
 
 module.exports = { validateUser }

@@ -59,7 +59,7 @@ ctrlUser.createUser = async (req, res) => {
         console.log('Error al crear el usuario', error)
 
         return res.status(500).json({
-            message: 'Error al crear el usuario'
+            message: 'Error del servidor al crear el usuario'
         })
     }
 }

@@ -1,5 +1,7 @@
 const { DataTypes, sequelize } = require("../db.js")
 
+const Playlist = require("./playlist.models.js")
+
 //MODELO DE USUARIO
 const Song = sequelize.define("Song", {
     id_song: {
@@ -15,19 +17,14 @@ const Song = sequelize.define("Song", {
         type: DataTypes.STRING,
         allowNull: false
     },
-    playlist_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true
-    },
-    in_use: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
-    }
 }, {
     timestamps: false,
     paranoid: false,
     tableName: "Song"
 });
+
+Song.belongsTo(Playlist, {foreignKey: "id_playlist"});
+Playlist.hasMany(Song, { foreignKey:  "id_playlist" });
 
 Song.sync({ force: false }).then(async () => {
     console.log('Tabla de canciones creada')

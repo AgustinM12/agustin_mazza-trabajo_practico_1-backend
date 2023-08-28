@@ -4,6 +4,7 @@ const User = require('../models/user.models');
 
 const { Op } = require('sequelize');
 const bcrypt = require('bcrypt');
+const Playlist = require('../models/playlist.models');
 
 const ctrlUser = {}
 
@@ -68,7 +69,7 @@ ctrlUser.createUser = async (req, res) => {
 ctrlUser.findUsers = async (req, res) => {
 
     try {
-        const users = await User.findAll();
+        const users = await User.findAll({include: {model:Playlist}});
 
         return res.json(users);
 

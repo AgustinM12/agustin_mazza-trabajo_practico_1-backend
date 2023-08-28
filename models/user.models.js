@@ -34,7 +34,7 @@ User.sync({force: false}).then(async()=>{
      // Crear los registros de canciones después de crear la tabla
      try {
          await User.bulkCreate([
-              { user_name: 'Usuario#1', user_email: 'User1@example.com',user_password:'password123' },
+              { user_name: 'Usuario#1', user_email: 'User1@example.com',user_password:'password123', playlist_id: 1 },
             ])
                           
             console.log('registros de canciones creados exitosamente');

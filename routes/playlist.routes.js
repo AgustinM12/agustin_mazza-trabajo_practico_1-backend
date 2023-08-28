@@ -7,7 +7,8 @@ const {
     findPlaylists,
     findOnePlaylist,
     updatePlaylist,
-    deletePlaylist
+    deletePlaylist,
+    cargarCanciones
 } = require('../controllers/playlist.controllers')
 
 // Traer TODAS las playlist
@@ -24,5 +25,8 @@ router.get('/delete-playlist/:id_playlist', deletePlaylist);
 
 // Crear una playlist
 router.post('/register-playlist', validatePlaylist, createPlaylist);
+
+//Cargar canciones a la playlist
+router.put('/charge-song', cargarCanciones);
 
 module.exports = router
